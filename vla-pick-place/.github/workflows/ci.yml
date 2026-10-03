@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build C++ runtime
+        run: |
+          cmake -S cpp -B cpp/build -DCMAKE_BUILD_TYPE=Release
+          cmake --build cpp/build -j2
+      - name: C++ tests (parity with PyTorch, input validation)
+        run: ctest --test-dir cpp/build --output-on-failure
+
+  python:
+    runs-on: ubuntu-latest
+    env:
+      MUJOCO_GL: osmesa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: System packages (software OpenGL for MuJoCo rendering)
+        run: sudo apt-get update && sudo apt-get install -y libosmesa6
+      - name: Python packages
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check vla tests scripts
+      - name: Build Python binding for the C++ runtime
+        run: |
+          cmake -S cpp -B cpp/build -DVLA_BUILD_PYTHON=ON -DPython_EXECUTABLE=$(which python)
+          cmake --build cpp/build -j2
+      - name: Tests
+        run: pytest -q
+      - name: Smoke test - closed-loop evaluation of the released policy
+        run: python -m vla.evaluate --checkpoint checkpoints/rl_policy.pt --episodes 5 --splits seen

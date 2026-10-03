@@ -1,0 +1,62 @@
+{
+ "checkpoint": "checkpoints/rl_policy.pt",
+ "backend": "torch",
+ "results": [
+  {
+   "split": "seen",
+   "episodes": 200,
+   "success_rate": 0.815,
+   "ci95": [
+    0.7554281794988185,
+    0.8626988367726394
+   ],
+   "mean_steps_success": 21.539877300613497,
+   "intervention_step_rate": 0.08829174664107485,
+   "wrong_placement_rate": 0.0,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 3.868566998789902
+  },
+  {
+   "split": "unseen_pairs",
+   "episodes": 200,
+   "success_rate": 0.43,
+   "ci95": [
+    0.36334204488394795,
+    0.49929639594461706
+   ],
+   "mean_steps_success": 26.58139534883721,
+   "intervention_step_rate": 0.08579881656804733,
+   "wrong_placement_rate": 0.015,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 3.8133035004648264
+  },
+  {
+   "split": "unseen_phrasing",
+   "episodes": 200,
+   "success_rate": 0.12,
+   "ci95": [
+    0.08197935023887545,
+    0.17234361425904846
+   ],
+   "mean_steps_success": 34.041666666666664,
+   "intervention_step_rate": 0.2926078931176936,
+   "wrong_placement_rate": 0.0,
+   "disturbed_distractor_rate": 0.02,
+   "policy_ms_median": 3.7579390009341296
+  },
+  {
+   "split": "more_distractors",
+   "episodes": 200,
+   "success_rate": 0.83,
+   "ci95": [
+    0.7718399896049648,
+    0.8757216464889435
+   ],
+   "mean_steps_success": 21.566265060240966,
+   "intervention_step_rate": 0.09483985765124556,
+   "wrong_placement_rate": 0.0,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 3.8293119996524183
+  }
+ ]
+}

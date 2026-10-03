@@ -1,0 +1,62 @@
+{
+ "checkpoint": "checkpoints/bc_policy.pt",
+ "backend": "torch",
+ "results": [
+  {
+   "split": "seen",
+   "episodes": 200,
+   "success_rate": 0.8,
+   "ci95": [
+    0.7391436038882958,
+    0.8495487925607118
+   ],
+   "mean_steps_success": 22.1875,
+   "intervention_step_rate": 0.05899159663865546,
+   "wrong_placement_rate": 0.005,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 3.799083000558312
+  },
+  {
+   "split": "unseen_pairs",
+   "episodes": 200,
+   "success_rate": 0.425,
+   "ci95": [
+    0.35853495209243025,
+    0.4942919487953179
+   ],
+   "mean_steps_success": 25.529411764705884,
+   "intervention_step_rate": 0.07475192943770673,
+   "wrong_placement_rate": 0.0,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 3.7782409999636
+  },
+  {
+   "split": "unseen_phrasing",
+   "episodes": 200,
+   "success_rate": 0.055,
+   "ci95": [
+    0.030985020801370097,
+    0.0957879244659355
+   ],
+   "mean_steps_success": 33.72727272727273,
+   "intervention_step_rate": 0.295363333617966,
+   "wrong_placement_rate": 0.01,
+   "disturbed_distractor_rate": 0.03,
+   "policy_ms_median": 3.7604420012939954
+  },
+  {
+   "split": "more_distractors",
+   "episodes": 200,
+   "success_rate": 0.76,
+   "ci95": [
+    0.69626534544272,
+    0.8139347314797533
+   ],
+   "mean_steps_success": 22.81578947368421,
+   "intervention_step_rate": 0.08616887208569628,
+   "wrong_placement_rate": 0.0,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 3.8938329998927657
+  }
+ ]
+}

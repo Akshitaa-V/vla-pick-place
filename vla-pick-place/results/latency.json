@@ -1,0 +1,30 @@
+{
+ "note": "batch size 1, 1000 calls after warm-up, same machine, back-to-back runs",
+ "parity_max_abs_error": 3.78e-06,
+ "results": [
+  {
+   "backend": "cpp",
+   "threads": 1,
+   "median_ms": 6.55,
+   "p95_ms": 7.68
+  },
+  {
+   "backend": "cpp",
+   "threads": 2,
+   "median_ms": 4.54,
+   "p95_ms": 5.38
+  },
+  {
+   "backend": "pytorch",
+   "threads": 1,
+   "median_ms": 3.49,
+   "p95_ms": 3.98
+  },
+  {
+   "backend": "pytorch",
+   "threads": 2,
+   "median_ms": 2.91,
+   "p95_ms": 3.6
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+[project]
+name = "vla-pick-place"
+version = "0.1.0"
+description = "Language-conditioned pick-and-place: vision-language-action Transformer, imitation learning, PPO fine-tuning and a C++ inference runtime"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.2", "mujoco>=3.1", "numpy>=1.26", "pyyaml>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pybind11>=2.12", "ruff>=0.5"]
+
+[tool.setuptools]
+packages = ["vla"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::UserWarning"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]

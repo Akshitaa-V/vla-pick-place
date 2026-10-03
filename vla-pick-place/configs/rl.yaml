@@ -1,0 +1,27 @@
+# PPO fine-tuning of the behaviour-cloned policy (asymmetric actor-critic).
+init_checkpoint: checkpoints/bc_policy.pt
+out_dir: checkpoints
+seed: 0
+threads: 2
+iterations: 48
+n_envs: 8
+horizon: 96              # steps per environment per iteration (8 x 96 = 768 transitions)
+ppo_epochs: 4
+minibatch: 64
+clip: 0.2
+gae_lambda: 0.95
+actor_lr: 0.00001        # small: fine-tuning, not training from scratch
+critic_lr: 0.001
+anchor_coef: 5.0         # squared distance to the frozen BC policy's action mean
+entropy_coef: 0.0
+init_log_std: -2.5       # exploration std ~0.08 in normalised action units
+min_log_std: -3.0
+success_window: 64       # episodes in the rolling rollout success rate
+val_every: 6             # deterministic validation every N iterations (keeps the best)
+val_episodes: 60
+reward:
+  gamma: 0.99
+  success_bonus: 5.0
+  wrong_placement_penalty: 1.0
+  disturb_penalty: 0.5
+  intervention_penalty: 0.05

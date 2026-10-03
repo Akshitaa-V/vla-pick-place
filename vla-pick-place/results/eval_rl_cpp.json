@@ -1,0 +1,62 @@
+{
+ "checkpoint": "checkpoints/policy.bin (exported from rl_policy.pt)",
+ "backend": "cpp",
+ "results": [
+  {
+   "split": "seen",
+   "episodes": 200,
+   "success_rate": 0.82,
+   "ci95": [
+    0.7608840628376157,
+    0.8670544933746589
+   ],
+   "mean_steps_success": 21.46951219512195,
+   "intervention_step_rate": 0.08502024291497975,
+   "wrong_placement_rate": 0.005,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 6.535937000080594
+  },
+  {
+   "split": "unseen_pairs",
+   "episodes": 200,
+   "success_rate": 0.43,
+   "ci95": [
+    0.36334204488394795,
+    0.49929639594461706
+   ],
+   "mean_steps_success": 26.546511627906977,
+   "intervention_step_rate": 0.08527896525265811,
+   "wrong_placement_rate": 0.015,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 6.541258999277488
+  },
+  {
+   "split": "unseen_phrasing",
+   "episodes": 200,
+   "success_rate": 0.12,
+   "ci95": [
+    0.08197935023887545,
+    0.17234361425904846
+   ],
+   "mean_steps_success": 34.291666666666664,
+   "intervention_step_rate": 0.29350786260212597,
+   "wrong_placement_rate": 0.005,
+   "disturbed_distractor_rate": 0.025,
+   "policy_ms_median": 6.651171999692451
+  },
+  {
+   "split": "more_distractors",
+   "episodes": 200,
+   "success_rate": 0.835,
+   "ci95": [
+    0.7773410172613647,
+    0.8800321587733603
+   ],
+   "mean_steps_success": 21.604790419161677,
+   "intervention_step_rate": 0.0946671438797423,
+   "wrong_placement_rate": 0.0,
+   "disturbed_distractor_rate": 0.0,
+   "policy_ms_median": 6.732180499966489
+  }
+ ]
+}

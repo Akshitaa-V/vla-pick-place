@@ -1,0 +1,19 @@
+# Behaviour cloning of the vision-language-action policy.
+data: data/demos.npz
+out_dir: checkpoints
+seed: 0
+val_frac: 0.05
+epochs: 14
+batch_size: 128          # global batch, split across DDP ranks
+lr: 0.0006
+weight_decay: 0.05
+shift_pad: 0             # no translation: the camera is fixed, absolute position matters
+suction_weight: 2.0      # suction on/off errors are costly: weight that dimension higher
+aux_weight: 0.5          # auxiliary keypoint loss: target block, target pad, end of the arm
+model:
+  dim: 128
+  depth: 4
+  heads: 4
+  mlp_dim: 256
+  patch: 8
+  chunk: 4
